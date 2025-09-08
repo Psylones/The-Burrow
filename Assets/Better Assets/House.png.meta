@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b277effcab29c8c47990ac90c34ce68b
+guid: d6adb1cbc8bfd6e4ab04b53f442ff0e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt_0
+      name: House_0
       rect:
         serializedVersion: 2
-        x: 81
+        x: 181
         y: 0
-        width: 1199
-        height: 1024
+        width: 1055
+        height: 1178
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9062d9b13b93fa429e2f75fc8d054c7
-      internalID: -1057653576
+      spriteID: cd26a0601de7fae48b35bf53495bca7d
+      internalID: 1457753977
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6b78061ea23e20e4d8a5ca094512013d
+    spriteID: 6ff9298789104a34caacf26d47f1fa4d
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dirt_0: -1057653576
+      House_0: 1457753977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

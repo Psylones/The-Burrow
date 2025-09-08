@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b277effcab29c8c47990ac90c34ce68b
+guid: 9252f642cd563c34a9b9cffbe40fe138
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt_0
+      name: Grandpa House_0
       rect:
         serializedVersion: 2
-        x: 81
+        x: 0
         y: 0
-        width: 1199
-        height: 1024
+        width: 1178
+        height: 1200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9062d9b13b93fa429e2f75fc8d054c7
-      internalID: -1057653576
+      spriteID: 1fd9efdc5e56269438f6c0eee8bb8d08
+      internalID: -1021368655
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6b78061ea23e20e4d8a5ca094512013d
+    spriteID: f6303fc3e92fff24b9693434c04f0d5b
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dirt_0: -1057653576
+      Grandpa House_0: -1021368655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
