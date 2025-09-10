@@ -3,35 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class GrandpaDialogue : MonoBehaviour
+public class CreatureDialogue : MonoBehaviour
 {
 
     public DialogueG dialogueG;
-    public DialogueManager dialogueManager;
-    public BoxCollider grandpaCollider;
+    public DialogueManagerCreature dialogueManagerCreature;
+    public BoxCollider creatureCollider;
     public Movement movement; //Bec's script
-    public bool InGrandpaRange;
+    public bool InCreatureRange;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-   void Start()
+    void Start()
     {
-       grandpaCollider.GetComponent<BoxCollider>();
-        InGrandpaRange = false;
+        creatureCollider.GetComponent<BoxCollider>();
+        InCreatureRange = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnTriggerEnter(UnityEngine.Collider grandpaCollider)
     {
 
-        dialogueManager.StartGrandpa(dialogueG);
-        
-        
-        
+        dialogueManagerCreature.StartCreature(dialogueG);
+
+
+
     }
 }

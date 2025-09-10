@@ -2075,7 +2075,7 @@ GameObject:
   - component: {fileID: 439925559}
   - component: {fileID: 439925558}
   m_Layer: 0
-  m_Name: Dialogue Manager
+  m_Name: Dialogue Manager (Grandpa)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2383,6 +2383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526993812}
   - component: {fileID: 526993811}
+  - component: {fileID: 526993813}
   m_Layer: 0
   m_Name: The Creature
   m_TagString: Untagged
@@ -2405,12 +2406,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 11.17984, y: 12.592604, z: 26.386095}
-  m_Center: {x: 1.7026672, y: 5.796301, z: -3.9979162}
+  m_Size: {x: 15.641434, y: 12.592604, z: 26.386095}
+  m_Center: {x: -0.5281296, y: 5.796301, z: -3.9979162}
 --- !u!4 &526993812
 Transform:
   m_ObjectHideFlags: 0
@@ -2427,6 +2428,27 @@ Transform:
   - {fileID: 1867641360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &526993813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526993810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e718ff11dff1a944975ccedab2e6fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueG:
+    characterName: The Creature
+    sentences:
+    - Tunnels.....
+    - Do... Not... Return... Here...
+  dialogueManagerCreature: {fileID: 778193571}
+  creatureCollider: {fileID: 526993811}
+  movement: {fileID: 629918306}
+  InCreatureRange: 0
 --- !u!1 &535216177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2986,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c18a00e7bd717064b81e963dee76563e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1867641359}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: c18a00e7bd717064b81e963dee76563e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1867641361}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: c18a00e7bd717064b81e963dee76563e, type: 3}
 --- !u!1 &591403519
 GameObject:
@@ -3280,6 +3305,7 @@ MonoBehaviour:
   speed: 1111
   rb: {fileID: 0}
   grandpa: {fileID: 1018312361}
+  creature: {fileID: 526993813}
 --- !u!65 &629918307
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3734,6 +3760,55 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -81.4, y: 3.5, z: 74.9}
   m_LocalScale: {x: 2.764356, y: 2.764356, z: 2.7132707}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &778193570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 778193572}
+  - component: {fileID: 778193571}
+  m_Layer: 0
+  m_Name: Dialogue Manager (Creature)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &778193571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778193570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6aa9db665c0c743a14ab73315ad0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: End Screen
+  nameText: {fileID: 793436272}
+  dialogueText: {fileID: 1056820096}
+  movement: {fileID: 629918306}
+  creatureDialogue: {fileID: 526993813}
+--- !u!4 &778193572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778193570}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -85.04943, y: -57.4542, z: 198.35912}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9772,6 +9847,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: c18a00e7bd717064b81e963dee76563e, type: 3}
   m_PrefabInstance: {fileID: 589488309}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1867641361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867641358}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.474579, y: 12.48582, z: 11.437319}
+  m_Center: {x: -0.9580536, y: 5.74291, z: -1.8623323}
 --- !u!1 &1888386277
 GameObject:
   m_ObjectHideFlags: 0
@@ -10618,5 +10714,6 @@ SceneRoots:
   - {fileID: 1725105717}
   - {fileID: 1630942073}
   - {fileID: 782962406}
+  - {fileID: 778193572}
   - {fileID: 439925559}
   - {fileID: 395303372}
