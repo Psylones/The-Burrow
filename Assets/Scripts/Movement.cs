@@ -1,20 +1,21 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class Movement : MonoBehaviour
 {
     public bool NotInConversation; //Changes to false when talking to a character so Bec is unable to move when dialogue is on screen
-    [SerializeField] int playerSpeed;
+    
    public Animator anim;
     [SerializeField] float speed;
     public Rigidbody rb;
-
+    public GrandpaDialogue grandpa;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        NotInConversation = true;
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -24,6 +25,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (grandpa.InGrandpaRange != true)
+
+        {
+            NotInConversation = true;
+            
+        }
+      
         if (Input.GetKey(KeyCode.D) && NotInConversation)
        {
             
@@ -50,12 +58,20 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        if (NotInConversation)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
 
-        Vector2 moveDirection = (Vector2.right * horizontal) + (Vector2.up * vertical);
-        moveDirection *= speed * Time.deltaTime;
+            Vector2 moveDirection = (Vector2.right * horizontal) + (Vector2.up * vertical);
+            moveDirection *= speed * Time.deltaTime;
 
-        rb.linearVelocity = moveDirection;
+            rb.linearVelocity = moveDirection;
+        }
+    }
+
+    public void ConversationOver()
+    {
+        NotInConversation = true;
     }
 }
