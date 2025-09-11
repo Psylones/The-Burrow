@@ -70,27 +70,9 @@ public class TorchBeforeEnter : MonoBehaviour
         foreach (string sentence in dialogueG.sentences)
         {
             denyText.Enqueue(sentence);
-
+            dialogueText.text = sentence;
 
         }
-
-        DisplayNextSentence();
-    }
-
-    public void DisplayNextSentence()
-    {
-        if (denyText.Count == 0)
-
-        {
-            CloseDialogue();
-            movement.NotInConversation = false;
-            return;
-        }
-
-
-        string sentence = denyText.Dequeue();
-        dialogueText.text = sentence;
-        Debug.Log(sentence);
 
     }
 

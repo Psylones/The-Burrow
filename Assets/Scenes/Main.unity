@@ -4603,7 +4603,8 @@ MonoBehaviour:
   dialogueG:
     characterName: Bec
     sentences:
-    - I better get my torch before going in.
+    - Hmm... Mum would probably want me to take a torch... Wouldn't want to worry
+      her.
   dialogueManager: {fileID: 439925558}
   HasTorch: 0
   entrance: {fileID: 850919692}
@@ -5313,6 +5314,8 @@ MonoBehaviour:
     - Ah, you cheeky bugger!
     - Oh well, your secret's safe with me.
     - But don't be telling your mother about it!
+    - Here, you better take a torch with you.
+    - I know you say you can see in the dark, but I ain't taking any chances!
   dialogueManager: {fileID: 439925558}
   grandpaCollider: {fileID: 1018312358}
   movement: {fileID: 629918306}
@@ -5373,8 +5376,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.6, y: -77.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 4.64, y: -77.8}
+  m_SizeDelta: {x: 168.081, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1056820095
 CanvasRenderer:
@@ -5469,7 +5472,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 24.28, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

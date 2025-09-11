@@ -96,6 +96,7 @@ public class DialogueManager : MonoBehaviour
         movement.ConversationOver();
         Debug.Log("End of conversation");
         Debug.Log("Not in Conversation = " + movement.NotInConversation);
+        Debug.Log("You got a torch!");
     }
 
 }
