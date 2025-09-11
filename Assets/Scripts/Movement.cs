@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public GrandpaDialogue grandpa;
     public CreatureDialogue creature;
+    public TorchBeforeEnter torchBeforeEnter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +27,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grandpa.InGrandpaRange != true && creature.InCreatureRange != true) 
+        if (grandpa.InGrandpaRange != true && creature.InCreatureRange != true && torchBeforeEnter.GettingDenied != true) 
 
         {
             NotInConversation = true;

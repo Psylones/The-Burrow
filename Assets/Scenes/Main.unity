@@ -199,12 +199,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13299608}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 155.29001, y: 4.4, z: 6.79}
-  m_LocalScale: {x: 1.7837, y: 1.7837, z: 1.7837}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.963902, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1280638176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25617571
 GameObject:
@@ -2097,6 +2097,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1056820096}
   movement: {fileID: 629918306}
   grandpaDialogue: {fileID: 1018312361}
+  torchBeforeEnter: {fileID: 850919695}
 --- !u!4 &439925559
 Transform:
   m_ObjectHideFlags: 0
@@ -3306,6 +3307,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   grandpa: {fileID: 1018312361}
   creature: {fileID: 526993813}
+  torchBeforeEnter: {fileID: 850919695}
 --- !u!65 &629918307
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4508,6 +4510,106 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &850919691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850919694}
+  - component: {fileID: 850919693}
+  - component: {fileID: 850919692}
+  - component: {fileID: 850919695}
+  m_Layer: 0
+  m_Name: Deeper Tunnels Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &850919692
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850919691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.912838, y: 18.762655, z: 19.01538}
+  m_Center: {x: 1.6250172, y: 8.881328, z: -132.23566}
+--- !u!65 &850919693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850919691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.805679, y: 17.743187, z: 17.121216}
+  m_Center: {x: -0.41771698, y: 8.371595, z: -133.63208}
+--- !u!4 &850919694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850919691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 65.02425, y: -12.910148, z: 138.3129}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &850919695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850919691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908518baeefc6c944b6e84c4f1a82a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 793436272}
+  dialogueText: {fileID: 1056820096}
+  dialogueG:
+    characterName: Bec
+    sentences:
+    - I better get my torch before going in.
+  dialogueManager: {fileID: 439925558}
+  HasTorch: 0
+  entrance: {fileID: 850919692}
+  entranceDetect: {fileID: 850919693}
+  movement: {fileID: 629918306}
+  GettingDenied: 0
 --- !u!1 &865165174
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,7 +6679,8 @@ Transform:
   m_LocalPosition: {x: 133.95, y: 4.4, z: 6.79}
   m_LocalScale: {x: 1.7837, y: 1.7837, z: 1.7837}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 13299610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310822758
@@ -10694,7 +10797,6 @@ SceneRoots:
   - {fileID: 591403521}
   - {fileID: 1596104805}
   - {fileID: 1280638176}
-  - {fileID: 13299610}
   - {fileID: 660517879}
   - {fileID: 1585433986}
   - {fileID: 1018312359}
@@ -10717,3 +10819,4 @@ SceneRoots:
   - {fileID: 778193572}
   - {fileID: 439925559}
   - {fileID: 395303372}
+  - {fileID: 850919694}

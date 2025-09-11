@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     public Movement movement;
     public GrandpaDialogue grandpaDialogue;
+    public TorchBeforeEnter torchBeforeEnter;
 
     private Queue<string> grandpaWords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,6 +89,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue() 
     {
+        torchBeforeEnter.HasTorch = true;
         nameText.enabled = false;
         dialogueText.enabled = false;
         grandpaDialogue.InGrandpaRange = false;
