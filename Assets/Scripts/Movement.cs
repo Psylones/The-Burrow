@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     public GrandpaDialogue grandpa;
     public CreatureDialogue creature;
     public TorchBeforeEnter torchBeforeEnter;
+    [SerializeField] List<Gem> gem = new List<Gem>();
+
+    [SerializeField] int collectionAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,23 +24,23 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
- 
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if (grandpa.InGrandpaRange != true && creature.InCreatureRange != true && torchBeforeEnter.GettingDenied != true) 
+        if (grandpa.InGrandpaRange != true && creature.InCreatureRange != true && torchBeforeEnter.GettingDenied != true)
 
         {
             NotInConversation = true;
-            
+
         }
-      
+
         if (Input.GetKey(KeyCode.D) && NotInConversation)
-       {
-            
-           anim.SetBool("IsRunning", true);
+        {
+
+            anim.SetBool("IsRunning", true);
         }
         else
         {
@@ -46,17 +49,36 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && NotInConversation)
         {
-           
-           anim.SetBool("IsBackwards", true);
-       }
+
+            anim.SetBool("IsBackwards", true);
+        }
         else
         {
             anim.SetBool("IsBackwards", false);
         }
 
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
 
+            for (int i = gem.Count - 1; i >= 0; i--)
+            {
+                gem[i].Collect(collectionAmount, i, this);
+
+            }
+        }
     }
+
+    public void CollectGem(int id)
+    {
+        gem.RemoveAt(id);
+    }
+
+    public void AddGem(Gem e)
+    {
+        gem.Add(e);
+    }
+
 
     private void FixedUpdate()
     {
