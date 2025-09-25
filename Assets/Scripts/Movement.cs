@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.D) && NotInConversation)
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && NotInConversation)
         {
 
             anim.SetBool("IsRunning", true);
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             anim.SetBool("IsRunning", false);
         }
 
-        if (Input.GetKey(KeyCode.A) && NotInConversation)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && NotInConversation)
         {
 
             anim.SetBool("IsBackwards", true);
