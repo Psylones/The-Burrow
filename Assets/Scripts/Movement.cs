@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     public TorchBeforeEnter torchBeforeEnter;
     [SerializeField] List<Gem> gem = new List<Gem>();
 
-    [SerializeField] int collectionAmount;
+    public int collectionAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,15 +58,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-
-            for (int i = gem.Count - 1; i >= 0; i--)
-            {
-                gem[i].Collect(collectionAmount, i, this);
-
-            }
-        }
+       
     }
 
     public void CollectGem(int id)

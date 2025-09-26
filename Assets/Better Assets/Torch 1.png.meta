@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcda28447f00c4b4ead14ed5bd42aed9
+guid: ee3653762d251fc47b2503307b44cafa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,23 +97,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lump 2_0
+      name: Torch 1_0
       rect:
         serializedVersion: 2
-        x: 87
-        y: 1592
-        width: 906
-        height: 328
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 450
+        y: 819
+        width: 153
+        height: 600
+      alignment: 9
+      pivot: {x: 0.49115747, y: 0.23618928}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63f9537575303a8488673df8f3202289
-      internalID: -1149951866
+      spriteID: 9803bc9cbeb6e20458db3f25ef55193f
+      internalID: -357418535
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4bcce8fdb05cede44a780cfdb3de6a73
+    spriteID: e1a09fcda09c85b47afbfacff4a25f05
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lump 2_0: -1149951866
+      Torch 1_0: -357418535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
