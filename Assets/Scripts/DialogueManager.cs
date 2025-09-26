@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public GrandpaDialogue grandpaDialogue;
     public TorchBeforeEnter torchBeforeEnter;
     public GameObject torchUI;
-    public GameObject light;
+    public GameObject lightCircle;
 
     private Queue<string> grandpaWords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
         nameText.enabled = false;
         dialogueText.enabled = false;
         torchUI.SetActive(false);
-        light.SetActive(false);
+        lightCircle.SetActive(false);
     }
 
     public void StartGrandpa(DialogueG dialogueG)
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.enabled = false;
         grandpaDialogue.InGrandpaRange = false;
         torchUI.SetActive(true);
-        light.SetActive(true);
+        lightCircle.SetActive(true);
         movement.ConversationOver();
         Debug.Log("End of conversation");
         Debug.Log("Not in Conversation = " + movement.NotInConversation);
