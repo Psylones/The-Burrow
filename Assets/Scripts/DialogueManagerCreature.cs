@@ -12,6 +12,9 @@ public class DialogueManagerCreature : MonoBehaviour
 
     public Movement movement;
     public CreatureDialogue creatureDialogue;
+    public GameObject ScaredyBat;
+    public GameObject Bec;
+    public Animator anim;
 
     private Queue<string> creatureWords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +33,9 @@ public class DialogueManagerCreature : MonoBehaviour
         movement.NotInConversation = false;
         Debug.Log("Not in Conversation = False");
         Debug.Log("Starting conversation with " + dialogueG.characterName);
+        Bec.SetActive(false);
+        ScaredyBat.SetActive(true);
+        anim.SetBool("IsScared", true);
 
         nameText.enabled = true;
         dialogueText.enabled = true;
