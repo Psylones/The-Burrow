@@ -30,14 +30,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grandpa.InGrandpaRange != true && creature.InCreatureRange != true && torchBeforeEnter.GettingDenied != true)
+        if (!grandpa.InGrandpaRange && !creature.InCreatureRange && !torchBeforeEnter.GettingDenied)
 
         {
             NotInConversation = true;
 
         }
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) && NotInConversation)
+        if (Input.GetKey(KeyCode.D) && NotInConversation || Input.GetKey(KeyCode.RightArrow) && NotInConversation)
         {
 
             anim.SetBool("IsRunning", true);
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             anim.SetBool("IsRunning", false);
         }
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) && NotInConversation)
+        if (Input.GetKey(KeyCode.A) && NotInConversation || Input.GetKey(KeyCode.LeftArrow) && NotInConversation)
         {
 
             anim.SetBool("IsBackwards", true);
@@ -90,4 +90,6 @@ public class Movement : MonoBehaviour
     {
         NotInConversation = true;
     }
+
+   
 }
