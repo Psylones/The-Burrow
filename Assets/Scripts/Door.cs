@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DoorEnterable && Input.GetKeyDown(KeyCode.Space) && !ExitedBefore)
+        if (DoorEnterable && Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(Scene);
             Debug.Log("Entering Somewhere");
@@ -29,13 +29,13 @@ public class Door : MonoBehaviour
             
         }
 
-        if (ExitedBefore && DoorEnterable && Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(Scene);
-         
-            Bec.transform.position = new Vector3(-21, -3.83f, 4.3f);
+       // if (ExitedBefore && DoorEnterable && Input.GetKeyDown(KeyCode.Space))
+       // {
+          //  SceneManager.LoadScene(Scene);
+         //
+           
 
-        }
+      //  }
     }
     public void OnTriggerEnter(Collider DoorCollider)
     {

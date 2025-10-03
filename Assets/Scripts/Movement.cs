@@ -13,7 +13,9 @@ public class Movement : MonoBehaviour
     public GrandpaDialogue grandpa;
     public CreatureDialogue creature;
     public TorchBeforeEnter torchBeforeEnter;
+    //public InspectObject inspectObject;
     [SerializeField] List<Gem> gem = new List<Gem>();
+   
 
     public int collectionAmount;
 
@@ -30,11 +32,15 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!grandpa.InGrandpaRange && !creature.InCreatureRange && !torchBeforeEnter.GettingDenied)
+        if (!grandpa.InGrandpaRange && !creature.InCreatureRange && !torchBeforeEnter.GettingDenied && !InspectObject.IsInspected)
 
         {
             NotInConversation = true;
 
+        }
+        else
+        {
+            NotInConversation = false;
         }
 
         if (Input.GetKey(KeyCode.D) && NotInConversation || Input.GetKey(KeyCode.RightArrow) && NotInConversation)

@@ -27,8 +27,9 @@ public class OuterDoor : MonoBehaviour
     {
         if (DoorEnterable && Input.GetKeyDown(KeyCode.Space))
         {
-            Inside = true;
+            
             SceneManager.LoadScene(Scene);
+            Inside = true;
             Debug.Log("Entering Inside");
            
             Bec.transform.position = new Vector3(-21, -3.83f, 4.3f);
@@ -38,11 +39,11 @@ public class OuterDoor : MonoBehaviour
         if (Inside)
         {
             {
-                GameObject Bec = GameObject.Find("BecInside");
-                if (Bec != null)
-                {
-                    Bec.transform.position = new Vector3(-21, -3.83f, 4.3f);
-                }
+               
+
+                IsInside(); 
+                Inside = false;
+                DoorEnterable = false;
             }
 
         }
@@ -61,5 +62,12 @@ public class OuterDoor : MonoBehaviour
         DoorText.enabled = false;
         DoorEnterable = false;
 
+    }
+    public void IsInside()
+    {
+        GameObject Bec = GameObject.Find("BecInside");
+        Bec.transform.position = new Vector3(-21, -3.83f, 4.3f);
+
+        
     }
 }

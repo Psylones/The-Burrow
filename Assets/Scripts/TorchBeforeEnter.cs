@@ -49,7 +49,7 @@ public class TorchBeforeEnter : MonoBehaviour
         public void OnTriggerEnter(UnityEngine.Collider entranceDetect)
     {
         Debug.Log("this is working");
-        DenyAccess();
+        
     }
 
     public void OnTriggerExit(UnityEngine.Collider entranceDetect)

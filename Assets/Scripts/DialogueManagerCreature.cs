@@ -82,7 +82,7 @@ public class DialogueManagerCreature : MonoBehaviour
     void Update()
     {
 
-        if (!creatureDialogue.InCreatureRange)
+        if (!creatureDialogue.InCreatureRange) 
         {
             return;
         }
