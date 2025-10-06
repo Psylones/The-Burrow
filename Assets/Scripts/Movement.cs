@@ -14,8 +14,7 @@ public class Movement : MonoBehaviour
     public CreatureDialogue creature;
     public TorchBeforeEnter torchBeforeEnter;
     //public InspectObject inspectObject;
-    [SerializeField] List<Gem> gem = new List<Gem>();
-   
+  
 
     public int collectionAmount;
 
@@ -67,15 +66,7 @@ public class Movement : MonoBehaviour
        
     }
 
-    public void CollectGem(int id)
-    {
-        gem.RemoveAt(id);
-    }
-
-    public void AddGem(Gem e)
-    {
-        gem.Add(e);
-    }
+    
 
 
     private void FixedUpdate()

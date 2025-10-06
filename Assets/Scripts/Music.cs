@@ -2,8 +2,17 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
-    void Awake()
+    public static bool MusicStart;
+    void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        MusicStart = true;
+    }
+    void Update()
+    {
+        if (MusicController.gameOver && !MusicStart)
+        {
+             Destroy(this.gameObject);
+        }
+       DontDestroyOnLoad(this.gameObject);
     }
 }

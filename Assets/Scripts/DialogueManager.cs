@@ -1,21 +1,24 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class DialogueManager : MonoBehaviour
 {
-
+    
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-
     public Movement movement;
     public GrandpaDialogue grandpaDialogue;
     public TorchBeforeEnter torchBeforeEnter;
     public GameObject torchUI;
     public GameObject lightCircle;
-
+    [SerializeField] string Scene;
     private Queue<string> grandpaWords;
+    public bool HasSpokenBefore;
+    public bool QuestStart;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,12 +27,13 @@ public class DialogueManager : MonoBehaviour
         dialogueText.enabled = false;
         torchUI.SetActive(false);
         lightCircle.SetActive(false);
+        HasSpokenBefore = false;
+        QuestStart = false;
     }
 
     public void StartGrandpa(DialogueG dialogueG)
 
     {
-
         grandpaDialogue.InGrandpaRange = true;
         movement.NotInConversation = false;
         Debug.Log("Not in Conversation = False");
@@ -49,9 +53,33 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
-       
+
+
     }
 
+    public void EndGrandpa(DialogueG dialogueG)
+    {
+ grandpaDialogue.InGrandpaRange = true;
+        movement.NotInConversation = false;
+        Debug.Log("Not in Conversation = False");
+        Debug.Log("Starting conversation with " + dialogueG.characterName);
+       
+        nameText.enabled = true;
+        dialogueText.enabled = true;
+        nameText.text = dialogueG.characterName;
+
+        grandpaWords.Clear();
+
+        foreach (string secondSentence in dialogueG.secondSentences)
+        {
+            grandpaWords.Enqueue(secondSentence);
+
+
+        }
+
+        DisplaySecondDialogue();
+
+    }
 
     public void DisplayNextSentence()
     {
@@ -68,25 +96,42 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = sentence;
         Debug.Log(sentence);
 
-       
-            
-            
-
-       
-        
 
     }
 
-   void Update()
+    public void DisplaySecondDialogue()
+    {
+        if (grandpaWords.Count == 0)
+
+        {
+            EndGame();
+            movement.NotInConversation = false;
+            return;
+        }
+
+
+        string secondSentence = grandpaWords.Dequeue();
+        dialogueText.text = secondSentence;
+        Debug.Log(secondSentence);
+
+
+    }
+
+    void Update()
     {
 
         if (!grandpaDialogue.InGrandpaRange)
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true)
+        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && !grandpaDialogue.QuestComplete)
         {
             DisplayNextSentence();
+
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && grandpaDialogue.QuestComplete)
+        {
+            DisplaySecondDialogue();
 
         }
     }
@@ -100,9 +145,17 @@ public class DialogueManager : MonoBehaviour
         torchUI.SetActive(true);
         lightCircle.SetActive(true);
         movement.ConversationOver();
+        HasSpokenBefore = true;
+        QuestStart = true;
         Debug.Log("End of conversation");
         Debug.Log("Not in Conversation = " + movement.NotInConversation);
         Debug.Log("You got a torch!");
     }
 
+    void EndGame()
+    {
+        SceneManager.LoadScene(Scene);
+        Debug.Log("Thanks For Playing");
+
+    }
 }

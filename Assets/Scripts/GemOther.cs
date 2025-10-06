@@ -9,13 +9,19 @@ public class GemOther : MonoBehaviour
     public Movement Bec;
     [SerializeField] int DigNumber;
     public bool Digging;
-    [SerializeField] List<GemOther> gems = new List<GemOther>();
+    public GameObject inventoryObject;
+    public TextMeshProUGUI inventoryCount;
+    public static int treasureCollected;
+
+   // [SerializeField] List<GemOther> gems = new List<GemOther>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CollectText.enabled = false;
         Digging = false;
+        inventoryObject.SetActive(false);
+        inventoryCount.enabled = false;
     }
 
     // Update is called once per frame
@@ -26,12 +32,16 @@ public class GemOther : MonoBehaviour
             Debug.Log("Digging...");
 
             DigNumber -= Bec.collectionAmount;
-
+           
+           
             if (DigNumber <= 0)
             {
-
+                inventoryObject.SetActive(true);
+                inventoryCount.enabled = true;
                 Destroy(gameObject);
                 Destroy(CollectText);
+                treasureCollected++;
+                inventoryCount.text = treasureCollected.ToString();
             }
 
         }

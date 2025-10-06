@@ -15,6 +15,7 @@ public class DialogueManagerCreature : MonoBehaviour
     public GameObject ScaredyBat;
     public GameObject Bec;
     public Animator anim;
+   
 
     private Queue<string> creatureWords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +24,7 @@ public class DialogueManagerCreature : MonoBehaviour
         creatureWords = new Queue<string>();
         nameText.enabled = false;
         dialogueText.enabled = false;
+        
     }
 
     public void StartCreature(DialogueG dialogueG)
@@ -95,6 +97,7 @@ public class DialogueManagerCreature : MonoBehaviour
 
     void EndDialogue()
     {
+        
         SceneManager.LoadScene(Scene);
         Debug.Log("Exiting the Burrow");
     }
