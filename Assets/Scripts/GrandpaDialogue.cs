@@ -12,7 +12,7 @@ public class GrandpaDialogue : MonoBehaviour
     public BoxCollider grandpaCollider;
     public Movement movement; //Bec's script
     public bool InGrandpaRange;
-    public bool QuestComplete;
+    public static bool QuestComplete;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,15 +31,15 @@ public class GrandpaDialogue : MonoBehaviour
 
     public void OnTriggerEnter(UnityEngine.Collider grandpaCollider)
     {
-        if (QuestComplete)
-        {
-            dialogueManager.EndGrandpa(dialogueG);
-        }
+       
         if (!QuestComplete && !dialogueManager.HasSpokenBefore)
         {
             dialogueManager.StartGrandpa(dialogueG);
         }
        
-        
+         if (QuestComplete)
+        {
+            dialogueManager.EndGrandpa(dialogueG);
+        }
     }
 }

@@ -31,7 +31,12 @@ public class Quest : MonoBehaviour
         if (GemOther.treasureCollected == 3)
         {
             QuestScore.text = "Objective - Return to Grandpa";
-            grandpaDialogue.QuestComplete = true;
+            GrandpaDialogue.QuestComplete = true;
+           
+        }
+        if (GemOther.treasureCollected != 3)
+        {
+            GrandpaDialogue.QuestComplete = false;
         }
 
     }

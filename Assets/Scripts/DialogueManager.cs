@@ -124,12 +124,12 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && !grandpaDialogue.QuestComplete)
+        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && !GrandpaDialogue.QuestComplete)
         {
             DisplayNextSentence();
 
         }
-        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && grandpaDialogue.QuestComplete)
+        if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && GrandpaDialogue.QuestComplete)
         {
             DisplaySecondDialogue();
 
@@ -154,6 +154,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndGame()
     {
+        GemOther.treasureCollected = 0;
         SceneManager.LoadScene(Scene);
         Debug.Log("Thanks For Playing");
 

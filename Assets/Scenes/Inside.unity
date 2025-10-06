@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 44265937}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.008802206, w: 0.99996126}
-  m_LocalPosition: {x: -19.56, y: 1.78, z: 5.87}
+  m_LocalPosition: {x: -20.11, y: 1.77, z: 5.87}
   m_LocalScale: {x: 0.82215506, y: 0.82215506, z: 0.82215506}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,6 +394,8 @@ MonoBehaviour:
   torchUI: {fileID: 1320050264}
   lightCircle: {fileID: 1320050264}
   Scene: 
+  HasSpokenBefore: 0
+  QuestStart: 0
 --- !u!4 &80336261
 Transform:
   m_ObjectHideFlags: 0
@@ -4357,7 +4359,6 @@ MonoBehaviour:
   grandpa: {fileID: 80336259}
   creature: {fileID: 949606388}
   torchBeforeEnter: {fileID: 749203115}
-  gem: []
   collectionAmount: 0
 --- !u!1 &1690544173
 GameObject:
@@ -5705,7 +5706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130.3, y: -8.9}
+  m_AnchoredPosition: {x: -135.3, y: -8.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944282093
@@ -5975,7 +5976,7 @@ Transform:
   m_GameObject: {fileID: 1992468379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.55, y: 3.2667, z: 5.9}
+  m_LocalPosition: {x: -20.31, y: 3.2667, z: 5.9}
   m_LocalScale: {x: 3.360938, y: 5.1111207, z: 3.4083662}
   m_ConstrainProportionsScale: 0
   m_Children: []
