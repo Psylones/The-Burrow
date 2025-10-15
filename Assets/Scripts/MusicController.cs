@@ -7,6 +7,7 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         gameOver = true;
+        GrandpaDialogue.QuestComplete = false;
         Music.MusicStart = false;
     }
 
