@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     {
         
         rb = GetComponent<Rigidbody>();
+       
     }
 
 
@@ -78,9 +79,16 @@ public class Movement : MonoBehaviour
 
             Vector2 moveDirection = (Vector2.right * horizontal) + (Vector2.up * vertical);
             moveDirection *= speed * Time.deltaTime;
+            
 
             rb.linearVelocity = moveDirection;
+            
         }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
+        
     }
 
     public void ConversationOver()

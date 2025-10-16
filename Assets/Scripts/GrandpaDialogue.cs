@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Multiplayer.Center.Common;
+using TMPro;
 
 
 public class GrandpaDialogue : MonoBehaviour
@@ -13,6 +14,7 @@ public class GrandpaDialogue : MonoBehaviour
     public Movement movement; //Bec's script
     public bool InGrandpaRange;
     public static bool QuestComplete;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

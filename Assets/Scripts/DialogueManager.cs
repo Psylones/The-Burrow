@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
+
 public class DialogueManager : MonoBehaviour
 {
     
@@ -19,6 +20,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> grandpaWords;
     public bool HasSpokenBefore;
     public bool QuestStart;
+    public TextMeshProUGUI next;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +31,7 @@ public class DialogueManager : MonoBehaviour
         lightCircle.SetActive(false);
         HasSpokenBefore = false;
         QuestStart = false;
+        next.enabled = false;
     }
 
     public void StartGrandpa(DialogueG dialogueG)
@@ -38,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         movement.NotInConversation = false;
         Debug.Log("Not in Conversation = False");
         Debug.Log("Starting conversation with " + dialogueG.characterName);
-
+        next.enabled = true;
         nameText.enabled = true;
         dialogueText.enabled = true;
         nameText.text = dialogueG.characterName;
@@ -63,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         movement.NotInConversation = false;
         Debug.Log("Not in Conversation = False");
         Debug.Log("Starting conversation with " + dialogueG.characterName);
-       
+        next.enabled = true;
         nameText.enabled = true;
         dialogueText.enabled = true;
         nameText.text = dialogueG.characterName;
@@ -147,6 +150,7 @@ public class DialogueManager : MonoBehaviour
         movement.ConversationOver();
         HasSpokenBefore = true;
         QuestStart = true;
+        next.enabled = false;
         Debug.Log("End of conversation");
         Debug.Log("Not in Conversation = " + movement.NotInConversation);
         Debug.Log("You got a torch!");
@@ -154,6 +158,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndGame()
     {
+        next.enabled = false;
         GemOther.treasureCollected = 0;
         SceneManager.LoadScene(Scene);
         Debug.Log("Thanks For Playing");

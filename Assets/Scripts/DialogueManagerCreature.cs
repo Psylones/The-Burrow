@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class DialogueManagerCreature : MonoBehaviour
 {
     [SerializeField] string Scene;//Loads this certain scene
@@ -15,7 +16,7 @@ public class DialogueManagerCreature : MonoBehaviour
     public GameObject ScaredyBat;
     public GameObject Bec;
     public Animator anim;
-   
+    public TextMeshProUGUI next;
 
     private Queue<string> creatureWords;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +25,7 @@ public class DialogueManagerCreature : MonoBehaviour
         creatureWords = new Queue<string>();
         nameText.enabled = false;
         dialogueText.enabled = false;
-        
+        next.enabled = false;
     }
 
     public void StartCreature(DialogueG dialogueG)
@@ -38,7 +39,7 @@ public class DialogueManagerCreature : MonoBehaviour
         Bec.SetActive(false);
         ScaredyBat.SetActive(true);
         anim.SetBool("IsScared", true);
-
+        next.enabled = true;
         nameText.enabled = true;
         dialogueText.enabled = true;
         nameText.text = dialogueG.characterName;
