@@ -3210,7 +3210,7 @@ MonoBehaviour:
   GemRadius: {fileID: 488349702}
   CollectText: {fileID: 901281302}
   Bec: {fileID: 629918306}
-  DigNumber: 3
+  DigNumber: 1
   Digging: 0
   inventoryObject: {fileID: 1665438198}
   inventoryCount: {fileID: 178869578}
@@ -5327,7 +5327,7 @@ MonoBehaviour:
   GemRadius: {fileID: 778179121}
   CollectText: {fileID: 907859541}
   Bec: {fileID: 629918306}
-  DigNumber: 3
+  DigNumber: 1
   Digging: 0
   inventoryObject: {fileID: 1665438198}
   inventoryCount: {fileID: 178869578}
@@ -6323,7 +6323,7 @@ MonoBehaviour:
   GemRadius: {fileID: 846674813}
   CollectText: {fileID: 813963857}
   Bec: {fileID: 629918306}
-  DigNumber: 3
+  DigNumber: 1
   Digging: 0
   inventoryObject: {fileID: 1665438198}
   inventoryCount: {fileID: 178869578}
