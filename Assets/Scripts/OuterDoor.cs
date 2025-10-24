@@ -50,14 +50,14 @@ public class OuterDoor : MonoBehaviour
 
        
     }
-    public void OnTriggerEnter(Collider DoorCollider)
+    private void OnTriggerEnter(Collider DoorCollider)
     {
         DoorText.enabled = true;
         DoorEnterable = true;
 
     }
 
-    public void OnTriggerExit(Collider DoorCollider)
+    private void OnTriggerExit(Collider DoorCollider)
     {
         DoorText.enabled = false;
         DoorEnterable = false;

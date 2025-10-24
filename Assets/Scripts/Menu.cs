@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
+
     [SerializeField] string Scene;//Loads this certain scene
     public void StartGame()
     {
