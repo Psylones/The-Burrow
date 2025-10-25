@@ -1,35 +1,22 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 
 
 public class Movement : MonoBehaviour
 {
-    public bool NotInConversation; //Changes to false when talking to a character so Bec is unable to move when dialogue is on screen
-    
-   public Animator anim;
+    public bool NotInConversation; //Changes to false when talking to a character so Bec is unable to move when dialogue is on screen 
+    public Animator anim; //Bec's animator
     [SerializeField] float speed;
-    [SerializeField] float jumpSpeed;
-    public Rigidbody rb;
+    private Rigidbody rb;
     public GrandpaDialogue grandpa;
     public CreatureDialogue creature;
-    public TorchBeforeEnter torchBeforeEnter;
-    [SerializeField] bool Grounded;
-    [SerializeField] float jumpHeight;
-    [SerializeField] BoxCollider floor;
-    
-    //public InspectObject inspectObject;
+    [SerializeField] bool Grounded; //Test if the character is touching the floor to be able to jump again
   
-
-    public int collectionAmount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         rb = GetComponent<Rigidbody>();
-        
     }
 
 
@@ -38,40 +25,60 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!grandpa.InGrandpaRange && !creature.InCreatureRange && !torchBeforeEnter.GettingDenied && !InspectObject.IsInspected)
-
+        if (!grandpa.InGrandpaRange && !creature.InCreatureRange && !InspectObject.IsInspected)
         {
             NotInConversation = true;
-
         }
         else
         {
             NotInConversation = false;
         }
 
-        if (Input.GetKey(KeyCode.D) && NotInConversation || Input.GetKey(KeyCode.RightArrow) && NotInConversation)
+        //Running Animations
+        if (Input.GetKey(KeyCode.D) && NotInConversation)
         {
             
             anim.SetBool("IsRunning", true);
         }
         else
         {
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            anim.SetBool("IsRunning", false);
+            rb.constraints = RigidbodyConstraints.FreezePositionX; //prevents sliding
+            anim.SetBool("IsRunning", false); //Running right
         }
-
-        if (Input.GetKey(KeyCode.A) && NotInConversation || Input.GetKey(KeyCode.LeftArrow) && NotInConversation)
+        if (Input.GetKey(KeyCode.A) && NotInConversation)
         {
-
-            anim.SetBool("IsBackwards", true);
+            anim.SetBool("IsBackwards", true); //Running left
         }
         else
         {
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezePositionX; //prevents sliding
             anim.SetBool("IsBackwards", false);
         }
-
-       
+        //Jump Animations
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && NotInConversation && Grounded) 
+        {
+           anim.SetBool("IsJumpingForward", true); //jumping while moving right
+        }
+        else
+        {  
+            anim.SetBool("IsJumpingForward", false);
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && NotInConversation && Grounded)
+        {
+            anim.SetBool("IsJumpingBackward", true);//jumping while moving left
+        }
+        else
+        {
+            anim.SetBool("IsJumpingBackward", false);
+        }
+        if (Input.GetKey(KeyCode.W) && NotInConversation && Grounded)
+        {
+            anim.SetBool("IsJumping", true); //Jumping while idle
+        }
+        else
+        {
+            anim.SetBool("IsJumping", false);
+        }
     }
 
     
@@ -79,35 +86,17 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W) && Grounded && NotInConversation || Input.GetKey(KeyCode.UpArrow) && Grounded && NotInConversation)
-        {
-         
-           float vertical = Input.GetAxis("Vertical");
-
-           Vector2 moveDirection = (Vector2.up * vertical);
-          moveDirection *= jumpSpeed;
-          rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
-        }
-
-        if (NotInConversation)
+        if (NotInConversation) //controls horizontal movement 
         {
             float horizontal = Input.GetAxis("Horizontal");
-
-            float vertical = Input.GetAxis("Vertical");
-
             Vector2 moveDirection = (Vector2.right * horizontal); 
             moveDirection *= speed * Time.deltaTime;
-           
-
             rb.linearVelocity = moveDirection;
-            
         }
         else
         {
             rb.linearVelocity = Vector2.zero;
         }
-
-
     }
 
     private void OnTriggerEnter(UnityEngine.Collider other)

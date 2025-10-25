@@ -3,17 +3,14 @@ using UnityEngine;
 
 public class InspectObject : MonoBehaviour
 {
-    public GameObject ObjectZoomed;
-    public TextMeshProUGUI InspectText;
-    //private Animator anim;
-    public BoxCollider collide;
-    public bool CanBeInspected;
+    [SerializeField] GameObject ObjectZoomed; //the inspected object
+    [SerializeField] TextMeshProUGUI InspectText; //appears when player is in object collider saying they can inspect it
+    [SerializeField] BoxCollider collide;
+    public bool CanBeInspected; //checks if the player is within the object's collider
     public static bool IsInspected; //So this bool can be changed by other scripts without having all the game objects attached
-    [SerializeField] string ObjectName;
-    public TextMeshProUGUI CloseText;
+    [SerializeField] string ObjectName; //Name of the object for debug purposes
+    [SerializeField] TextMeshProUGUI CloseText; //text saying how to stop inspecting object
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ObjectZoomed.SetActive(false);
@@ -22,13 +19,10 @@ public class InspectObject : MonoBehaviour
         IsInspected = false;
         CloseText.enabled = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (CanBeInspected && Input.GetKeyDown(KeyCode.Space))
         {
-           
             Inspecting();
         }
         if (Input.GetKeyDown(KeyCode.Return))
@@ -56,8 +50,6 @@ public class InspectObject : MonoBehaviour
         CloseText.enabled = true;
         InspectText.enabled = false;
         Debug.Log("Inspecting " + ObjectName);
-
-       
     }
 
     public void StopInspecting()

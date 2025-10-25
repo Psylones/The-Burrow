@@ -37,27 +37,20 @@ public class DialogueManager : MonoBehaviour
     public void StartGrandpa(DialogueG dialogueG)
 
     {
-        grandpaDialogue.InGrandpaRange = true;
-        movement.NotInConversation = false;
-        Debug.Log("Not in Conversation = False");
+        grandpaDialogue.InGrandpaRange = true; //Stops character movement
         Debug.Log("Starting conversation with " + dialogueG.characterName);
-        next.enabled = true;
-        nameText.enabled = true;
-        dialogueText.enabled = true;
-        nameText.text = dialogueG.characterName;
-
-        grandpaWords.Clear();
+        next.enabled = true; //text that says how to go to next dialogue
+        nameText.enabled = true;//The character name text
+        dialogueText.enabled = true; //The dialogue lines
+        nameText.text = dialogueG.characterName; //Puts the characters name in the name text box
+        grandpaWords.Clear();//clears the dialogue box
 
         foreach (string sentence in dialogueG.sentences)
         {
             grandpaWords.Enqueue(sentence);
-
-
         }
 
         DisplayNextSentence();
-
-
     }
 
     public void EndGrandpa(DialogueG dialogueG)
