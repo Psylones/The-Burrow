@@ -330,10 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoorCollider: {fileID: 44265940}
   DoorText: {fileID: 1944282093}
-  DoorEnterable: 0
   Scene: Main
-  ExitedBefore: 0
-  Bec: {fileID: 1602830165}
 --- !u!1 &80336258
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +368,6 @@ MonoBehaviour:
     secondSentences: []
   dialogueManager: {fileID: 80336260}
   grandpaCollider: {fileID: 80336262}
-  movement: {fileID: 1602830170}
   InGrandpaRange: 0
 --- !u!114 &80336260
 MonoBehaviour:
@@ -380,7 +376,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80336258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d65203c33fb9f459f1f7140b0c33c5, type: 3}
   m_Name: 
@@ -2567,18 +2563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908518baeefc6c944b6e84c4f1a82a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1913248450}
-  dialogueText: {fileID: 563383234}
-  dialogueG:
-    characterName: 
-    sentences: []
-    secondSentences: []
-  dialogueManager: {fileID: 80336260}
   HasTorch: 0
   entrance: {fileID: 749203117}
-  entranceDetect: {fileID: 749203117}
-  movement: {fileID: 1602830170}
-  GettingDenied: 0
 --- !u!4 &749203116
 Transform:
   m_ObjectHideFlags: 0
@@ -2879,9 +2865,7 @@ MonoBehaviour:
     secondSentences: []
   dialogueManagerCreature: {fileID: 949606389}
   creatureCollider: {fileID: 949606391}
-  movement: {fileID: 1602830170}
   InCreatureRange: 0
-  next: {fileID: 0}
 --- !u!114 &949606389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4581,16 +4565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NotInConversation: 0
   anim: {fileID: 1723271985}
-  speed: 1800
-  jumpSpeed: 100
-  rb: {fileID: 1602830167}
+  speed: 1750
   grandpa: {fileID: 80336259}
   creature: {fileID: 949606388}
-  torchBeforeEnter: {fileID: 749203115}
   Grounded: 0
-  jumpHeight: 45
-  floor: {fileID: 938535901}
-  collectionAmount: 1
 --- !u!1 &1690544173
 GameObject:
   m_ObjectHideFlags: 0
@@ -6485,7 +6463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1602830170}
-  speed: 1800
+  speed: 1750
   rb: {fileID: 2024054248}
 --- !u!1 &2026495853
 GameObject:

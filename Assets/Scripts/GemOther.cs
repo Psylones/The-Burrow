@@ -6,10 +6,9 @@ public class GemOther : MonoBehaviour
 {
     [SerializeField] BoxCollider GemRadius;
     [SerializeField] TextMeshProUGUI CollectText;
-    [SerializeField] Movement Bec;
-    [SerializeField] int DigNumber;
-    public bool Digging;
-    public static int treasureCollected;
+    [SerializeField] int DigNumber; //number of clicks for gem to be collected
+    public bool Digging; //detects if player is in the gem collider
+    public static int treasureCollected; //coounts how many gems have been collected
    
     void Start()
     {

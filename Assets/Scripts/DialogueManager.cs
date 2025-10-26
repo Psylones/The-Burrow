@@ -9,22 +9,22 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
-    public Movement movement;
-    public GrandpaDialogue grandpaDialogue;
-    public TorchBeforeEnter torchBeforeEnter;
-    public GameObject torchUI;
-    public GameObject lightCircle;
-    [SerializeField] string Scene;
-    private Queue<string> grandpaWords;
-    public bool HasSpokenBefore;
-    public bool QuestStart;
-    public TextMeshProUGUI next;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] TextMeshProUGUI nameText; //text that displays character name
+    [SerializeField] TextMeshProUGUI dialogueText; //text that displays dialogue
+    [SerializeField] Movement movement; //script
+    [SerializeField] GrandpaDialogue grandpaDialogue; //script
+    [SerializeField] TorchBeforeEnter torchBeforeEnter; //script
+    [SerializeField] GameObject torchUI; //UI inventory item
+    [SerializeField] GameObject lightCircle; //light GameObject
+    [SerializeField] string Scene; //scene to change to
+    private Queue<string> grandpaWords; //grandpa's dialogue lines
+    public bool HasSpokenBefore; //turns to true after talking with Grandpa for the first time
+    public bool QuestStart; //turns to true after talking with Grandpa for the first time
+    [SerializeField] TextMeshProUGUI next; //text saying which button to continue dialogue
+  
     void Start()
     {
-        grandpaWords = new Queue<string>();
+        grandpaWords = new Queue<string>(); //creates the queue
         nameText.enabled = false;
         dialogueText.enabled = false;
         torchUI.SetActive(false);
@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
         next.enabled = false;
     }
 
-    public void StartGrandpa(DialogueG dialogueG)
+    public void StartGrandpa(DialogueG dialogueG) //Grandpa's first round of dialogue
 
     {
         grandpaDialogue.InGrandpaRange = true; //Stops character movement
@@ -47,114 +47,92 @@ public class DialogueManager : MonoBehaviour
 
         foreach (string sentence in dialogueG.sentences)
         {
-            grandpaWords.Enqueue(sentence);
+            grandpaWords.Enqueue(sentence); //queues Grandpa's dialogue to be displayed
         }
-
         DisplayNextSentence();
     }
 
-    public void EndGrandpa(DialogueG dialogueG)
+    public void EndGrandpa(DialogueG dialogueG) //Grandpa's second round of dialogue
     {
- grandpaDialogue.InGrandpaRange = true;
-        movement.NotInConversation = false;
-        Debug.Log("Not in Conversation = False");
+        grandpaDialogue.InGrandpaRange = true;
         Debug.Log("Starting conversation with " + dialogueG.characterName);
         next.enabled = true;
         nameText.enabled = true;
         dialogueText.enabled = true;
         nameText.text = dialogueG.characterName;
-
         grandpaWords.Clear();
 
         foreach (string secondSentence in dialogueG.secondSentences)
         {
             grandpaWords.Enqueue(secondSentence);
-
-
         }
-
         DisplaySecondDialogue();
-
     }
 
     public void DisplayNextSentence()
     {
-        if (grandpaWords.Count == 0)
-
+        if (grandpaWords.Count == 0) //no sentences remain
         {
             EndDialogue();
-            movement.NotInConversation = false;
             return;
-        }
-
-        
+        }  
+        //displays the next sentence
         string sentence = grandpaWords.Dequeue();
         dialogueText.text = sentence;
         Debug.Log(sentence);
-
-
     }
 
     public void DisplaySecondDialogue()
     {
-        if (grandpaWords.Count == 0)
-
+        if (grandpaWords.Count == 0) //goes to EndGame when no more dialogue to be said
         {
             EndGame();
-            movement.NotInConversation = false;
             return;
         }
-
-
+        //displays the next sentence
         string secondSentence = grandpaWords.Dequeue();
         dialogueText.text = secondSentence;
         Debug.Log(secondSentence);
-
-
     }
 
-    void Update()
+    void Update() 
     {
-
-        if (!grandpaDialogue.InGrandpaRange)
+        if (!grandpaDialogue.InGrandpaRange) //won't play any dialogue unless in Grandpa collider
         {
             return;
         }
         if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && !GrandpaDialogue.QuestComplete)
         {
-            DisplayNextSentence();
+            DisplayNextSentence(); //plays sentences
 
         }
         if (Input.GetKeyDown(KeyCode.Space) && grandpaDialogue.InGrandpaRange && movement.NotInConversation != true && GrandpaDialogue.QuestComplete)
         {
-            DisplaySecondDialogue();
+            DisplaySecondDialogue(); //plays second sentences
 
         }
     }
 
     void EndDialogue() 
     {
-        torchBeforeEnter.HasTorch = true;
-        nameText.enabled = false;
-        dialogueText.enabled = false;
+        torchBeforeEnter.HasTorch = true; //player can now enter into the deeper caves
+        nameText.enabled = false; //disables text
+        dialogueText.enabled = false;//disables text
+        next.enabled = false;//disables text
         grandpaDialogue.InGrandpaRange = false;
-        torchUI.SetActive(true);
-        lightCircle.SetActive(true);
-        movement.ConversationOver();
-        HasSpokenBefore = true;
-        QuestStart = true;
-        next.enabled = false;
+        torchUI.SetActive(true); //adds torch to inventory
+        lightCircle.SetActive(true);//turns on the light GameObject so the player lights up the walls of the deeper caves
+        movement.ConversationOver(); //allows the player to move again
+        HasSpokenBefore = true; //stops the dialogue from playing again when re entering the colldier
+        QuestStart = true; //acknowleges that the quest has begun
+        
         Debug.Log("End of conversation");
-        Debug.Log("Not in Conversation = " + movement.NotInConversation);
-        Debug.Log("You got a torch!");
+        Debug.Log("You got a torch!"); //let me know it was working before torch GameObject was added 
     }
 
-    void EndGame()
+    void EndGame() //loads the good ending screen
     {
-        next.enabled = false;
-        GemOther.treasureCollected = 0;
         SceneManager.LoadScene(Scene);
         Debug.Log("Thanks For Playing");
-
     }
 }

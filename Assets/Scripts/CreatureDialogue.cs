@@ -7,33 +7,19 @@ using UnityEngine;
 public class CreatureDialogue : MonoBehaviour
 {
 
-    public DialogueG dialogueG;
-    public DialogueManagerCreature dialogueManagerCreature;
-    public BoxCollider creatureCollider;
-    public Movement movement; //Bec's script
-    public bool InCreatureRange;
-    public TextMeshProUGUI next;
+    [SerializeField] DialogueG dialogueG; //Dialogue script
+    [SerializeField] DialogueManagerCreature dialogueManagerCreature; //Creature dialogue manager script
+    [SerializeField] BoxCollider creatureCollider;
+    public bool InCreatureRange; //turns to true if talking with the Creature
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         creatureCollider.GetComponent<BoxCollider>();
         InCreatureRange = false;
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void OnTriggerEnter(UnityEngine.Collider grandpaCollider)
     {
-
         dialogueManagerCreature.StartCreature(dialogueG);
-
-
-
     }
 }

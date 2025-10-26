@@ -28,11 +28,10 @@ public class OuterDoor : MonoBehaviour
             Inside = true;
             Debug.Log("Entering Inside");
         }
-        
         if (Inside)
         {
             IsInside(); 
-            Inside = false;
+            Inside = false; //turns bool back to false so teleportation only occurs once upon entering
             DoorEnterable = false;
         }
     }
@@ -42,11 +41,8 @@ public class OuterDoor : MonoBehaviour
         {
             DoorText.enabled = true;
         }
-
         DoorEnterable = true;
-
     }
-
     private void OnTriggerExit(Collider DoorCollider)
     {
         if (DoorText != null)
@@ -54,11 +50,10 @@ public class OuterDoor : MonoBehaviour
             DoorText.enabled = false;
         }
         DoorEnterable = false;
-
     }
     public void IsInside()
     {
-        GameObject Bec = GameObject.Find("BecInside");
-        Bec.transform.position = new Vector3(-21, -3.83f, 4.3f);
+        GameObject Bec = GameObject.Find("BecInside"); //finds the correct game object to teleport
+        Bec.transform.position = new Vector3(-21, -3.83f, 4.3f); //teleports them to the correct position outside the door
     }
 }

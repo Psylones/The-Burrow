@@ -2,46 +2,30 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-using TMPro;
-
-
 public class GrandpaDialogue : MonoBehaviour
 {
-
-    public DialogueG dialogueG;
-    public DialogueManager dialogueManager;
+    [SerializeField] DialogueG dialogueG;
+    [SerializeField] DialogueManager dialogueManager;
     public BoxCollider grandpaCollider;
-    public Movement movement; //Bec's script
-    public bool InGrandpaRange;
-    public static bool QuestComplete;
-    
+    public bool InGrandpaRange; //is in Grandpa's collider and talking with him
+    public static bool QuestComplete; //turns true when 3 treasures are collected
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
    void Start()
     {
-       grandpaCollider.GetComponent<BoxCollider>();
+        grandpaCollider.GetComponent<BoxCollider>();
         InGrandpaRange = false;
         QuestComplete = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter(UnityEngine.Collider grandpaCollider)
     {
-       
         if (!QuestComplete && !dialogueManager.HasSpokenBefore)
         {
-            dialogueManager.StartGrandpa(dialogueG);
+            dialogueManager.StartGrandpa(dialogueG); //starts the first round of Grandpa dialogue
         }
        
          if (QuestComplete)
         {
-            dialogueManager.EndGrandpa(dialogueG);
+            dialogueManager.EndGrandpa(dialogueG); //starts the second round of Grandpa dialogue
         }
     }
 }
